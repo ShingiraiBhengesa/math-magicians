@@ -25,7 +25,7 @@ To get a local copy up and running follow these simple example steps.
 
 - To clone the repository run `git clone https://github.com/ShingiraiBhengesa/Math-Magicians.git` in your terminal
 - Next run `npm install` to install dependances
-- To run the project run `npm start` this will open your web browser on localhost:8080
+- To run the project run `npm start` this will open your web browser on localhost:3000
 
 
 ### Run tests
