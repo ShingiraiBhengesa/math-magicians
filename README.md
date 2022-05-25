@@ -30,7 +30,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Run tests
 
-- Run `npm tets` to jest test results
+- Run `npm test` to jest test results
 
 
 ## Author 👤
