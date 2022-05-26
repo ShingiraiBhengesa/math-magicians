@@ -1,52 +1,127 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Calculator.css';
 import calculate from '../logic/calculate';
-import Button from './Button';
 
-export default class Calculator extends Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      total: '0',
-      next: null,
-      operation: null,
-    };
-    this.btnOnClick = this.btnOnClick.bind(this);
+    this.state = { total: 0, next: null, operation: null };
+    this.clickBtn = this.clickBtn.bind(this);
   }
 
-  btnOnClick(buttonName) {
-    this.setState((prevState) => (calculate(prevState, buttonName)));
+  clickBtn(e) {
+    this.setState((state) => calculate(state, e.target.id));
   }
 
   render() {
     const { total, next, operation } = this.state;
     return (
-      <div className="container">
-        <div className="result">
-          { total || '' }
-          { operation || '' }
-          { next || '' }
-        </div>
-        <Button typeBtn="0" btnOnClick={this.btnOnClick} btnClass="btn-light btn-zero" />
-        <Button typeBtn="." btnOnclick={this.btnOnClick} btnClass="btn-light btn-dot" />
-        <Button typeBtn="=" btnOnClick={this.btnOnClick} btnClass="btn-accent btn-equal" />
-        <Button typeBtn="AC" btnOnClick={this.btnOnClick} btnClass="btn-light btn-clear" />
-        <Button typeBtn="+/-" btnOnClick={this.btnOnClick} btnClass="btn-light btn-toogle-sign" />
-        <Button typeBtn="%" btnOnClick={this.btnOnClick} btnClass="btn-light btn-percentage" />
-        <Button typeBtn="/" btnOnClick={this.btnOnClick} btnClass="btn-accent btn-divider" />
-        <Button typeBtn="x" btnOnClick={this.btnOnClick} btnClass="btn-accent btn-multiply" />
-        <Button typeBtn="-" btnOnClick={this.btnOnClick} btnClass="btn-accent btn-substract" />
-        <Button typeBtn="+" btnOnClick={this.btnOnClick} btnClass="btn-accent btn-plus" />
-        <Button typeBtn="1" btnOnClick={this.btnOnClick} btnClass="btn-light btn-one" />
-        <Button typeBtn="2" btnOnClick={this.btnOnClick} btnClass="btn-light btn-two" />
-        <Button typeBtn="3" btnOnClick={this.btnOnClick} btnClass="btn-light btn-three" />
-        <Button typeBtn="4" btnOnClick={this.btnOnClick} btnClass="btn-light btn-four" />
-        <Button typeBtn="5" btnOnClick={this.btnOnClick} btnClass="btn-light btn-five" />
-        <Button typeBtn="6" btnOnClick={this.btnOnClick} btnClass="btn-light btn-six" />
-        <Button typeBtn="7" btnOnClick={this.btnOnClick} btnClass="btn-light btn-seven" />
-        <Button typeBtn="8" btnOnClick={this.btnOnClick} btnClass="btn-light btn-eight" />
-        <Button typeBtn="9" btnOnClick={this.btnOnClick} btnClass="btn-light btn-nine" />
+      <div className="calculator-Container">
+        <h2 className="defaultOutput box">
+          <span>{total}</span>
+          <span>{operation}</span>
+          <span>{next}</span>
+        </h2>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="AC"
+          className="box bt"
+        >
+          AC
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="+/-"
+          className="box bt"
+        >
+          +/-
+        </button>
+        <button type="button" onClick={this.clickBtn} id="%" className="box bt">
+          %
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="÷"
+          className="box bg-orange bt"
+        >
+          ÷
+        </button>
+        <button type="button" onClick={this.clickBtn} id="7" className="box bt">
+          7
+        </button>
+        <button type="button" onClick={this.clickBtn} id="8" className="box bt">
+          8
+        </button>
+        <button type="button" onClick={this.clickBtn} id="9" className="box bt">
+          9
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="x"
+          className="box bg-orange bt"
+        >
+          x
+        </button>
+        <button type="button" onClick={this.clickBtn} id="4" className="box bt">
+          4
+        </button>
+        <button type="button" onClick={this.clickBtn} id="5" className="box bt">
+          5
+        </button>
+        <button type="button" onClick={this.clickBtn} id="6" className="box bt">
+          6
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="-"
+          className="box bg-orange bt"
+        >
+          -
+        </button>
+        <button type="button" onClick={this.clickBtn} id="1" className="box bt">
+          1
+        </button>
+        <button type="button" onClick={this.clickBtn} id="2" className="box bt">
+          2
+        </button>
+        <button type="button" onClick={this.clickBtn} id="3" className="box bt">
+          3
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="+"
+          className="box bg-orange bt"
+        >
+          +
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="0"
+          className="box zero bt"
+        >
+          0
+        </button>
+        <button type="button" onClick={this.clickBtn} id="." className="box bt">
+          .
+        </button>
+        <button
+          type="button"
+          onClick={this.clickBtn}
+          id="="
+          className="box bg-orange bt"
+        >
+          =
+        </button>
       </div>
     );
   }
 }
+
+export default Calculator;
