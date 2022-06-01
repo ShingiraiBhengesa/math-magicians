@@ -33,7 +33,9 @@ To get a local copy up and running follow these simple example steps.
 - Run `npm test` to jest test results
 
 
-## Authors 👤
+## Authors 
+
+👤 **Shingirai**
 
 - GitHub: [@ShingiraiBhengesa](https://github.com/ShingiraiBhengesa)
 - Twitter: [@bhengesa](https://twitter.com/twitterhandle)
